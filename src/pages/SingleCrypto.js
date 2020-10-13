@@ -3,11 +3,12 @@ import { useParams } from "react-router-dom"
 
 export default function SingleCrypto() {
     const [loading, setLoading] = useState(false)
-    const [oneCrypto, setOneCrypto] = useState(null)
+    const [oneCrypto, setOneCrypto] = useState({})
 
     const { id } = useParams()
 
     useEffect(() => {
+        setLoading(true)
         async function getOneCrypto() {
             try {
                 const proxyurl = "https://cors-anywhere.herokuapp.com/";
@@ -23,18 +24,31 @@ export default function SingleCrypto() {
                 const data = await response.json()
                 const mydata = data.data;
                 setOneCrypto(mydata)
-                console.log(oneCrypto)
-
+                setLoading(false)
             } catch (error) {
                 console.log(error)
             }
         }
         getOneCrypto()
-    }, [oneCrypto])
+    }, [id])
 
 
+    if (loading) {
+        return <h2>Loading...</h2>
+    } if (oneCrypto === null) {
+        return <h2>No Crypto Exists</h2>
+    } else {
 
-    return <>
-        <h1>I am Single Crypto page</h1>
-    </>
+        return <>
+
+            {console.log(oneCrypto)}
+            <section>
+                <div>
+                    <img src={oneCrypto.logo} alt={oneCrypto.name} />
+                    <h2>{oneCrypto.name}</h2>
+                </div>
+            </section>
+        </>
+    }
+
 }
