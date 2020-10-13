@@ -1,10 +1,16 @@
 import React from "react";
 import { Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import SingleCrypto from './../pages/SingleCrypto';
+import Crypto from './Crypto';
 
 function RenderTable({ cryptos, loading }) {
-
+    if (loading) {
+        return <h2>Loading...</h2>
+    } if (cryptos.length < 1) {
+        return <h2>
+            No matches to your search criteria
+        </h2>
+    }
 
     return (
         <div>
@@ -20,26 +26,10 @@ function RenderTable({ cryptos, loading }) {
                     </tr>
                 </thead>
                 <tbody>
-                    {/* {cryptos.map(crypto => {
-                        return <SingleCrypto crypto={crypto} cryptos={cryptos} />
-                    })} */}
-                    {cryptos.map(crypto => (
-                        <tr key={crypto.id}>
-                            <td>{crypto.cmc_rank}</td>
-                            <td>
-                                <Link to={`/crypto/${crypto.id}`}>{crypto.name}</Link>
-                            </td>
-                            <td>{crypto.symbol}</td>
-                            <td>
-                                {crypto.quote.USD.price.toFixed(2)}-
-                {Object.keys(cryptos[0].quote)[0]}
-                            </td>
-                            <td>{crypto.quote.USD.percent_change_24h}</td>
-                            <td>
-                                {crypto.quote.USD.market_cap.toString().slice(0, 3) + "B"}
-                            </td>
-                        </tr>
-                    ))}
+                    {cryptos.map(crypto => {
+                        return <Crypto key={crypto.id} crypto={crypto} cryptos={cryptos} />
+                    })}
+
                 </tbody>
             </Table>
         </div>

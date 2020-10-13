@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react"
 import RenderTable from '../Components/Table';
-import SearchForm from "../Components/SearchForm";
+import SearchBox from './../Components/SearchBox';
 
 export const Home = () => {
     const [cryptos, setCryptos] = useState([])
@@ -36,14 +36,20 @@ export const Home = () => {
         }
         getAllCryptos()
 
-    }, [search]);
+    }, []);
 
+    let searchedCryptos = cryptos.filter(crypto => {
+        return crypto.name.toLowerCase().startsWith(search);
+    })
 
     return (
+
+
         <div className="container">
             <h1 className="title">Top Ranked Cryptos</h1>
-            <SearchForm setSearch={setSearch} />
-            <RenderTable loading={loading} cryptos={cryptos} />
+            <SearchBox search={search} setSearch={setSearch}></SearchBox>
+            {/* <SearchForm setSearch={setSearch} /> */}
+            <RenderTable loading={loading} cryptos={searchedCryptos} />
         </div>
     );
 }
