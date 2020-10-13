@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom"
 
 export default function SingleCrypto() {
     const [loading, setLoading] = useState(false)
-    const [oneCrypto, setOneCrypto] = useState({})
+    const [oneCrypto, setOneCrypto] = useState(null)
 
     const { id } = useParams()
 
@@ -24,12 +24,15 @@ export default function SingleCrypto() {
                 const mydata = data.data;
                 setOneCrypto(mydata)
                 console.log(oneCrypto)
+
             } catch (error) {
                 console.log(error)
             }
         }
         getOneCrypto()
     }, [oneCrypto])
+
+
 
     return <>
         <h1>I am Single Crypto page</h1>
