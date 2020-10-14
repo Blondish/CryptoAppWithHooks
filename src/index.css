@@ -1,34 +1,5 @@
-.app {
-  color: white;
-  text-align: center;
-  /* background: url("./assets/newimage2.jpg") fixed;
-  background-color: #cccccc;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 100vh;
-  width: 100%; */
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  /* color: white; */
-}
 
-.title {
-  margin: 50px;
-  color: #282c34;
-}
 
-.crypto {
-  margin: 10px;
-  color: #282c34;
-  text-align: start;
-  width: auto;
-}
+
+

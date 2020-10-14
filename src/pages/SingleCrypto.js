@@ -45,12 +45,19 @@ export default function SingleCrypto({ ...props }) {
     } else {
 
         return <>
-            <section className="container">
+            <section>
                 <div >
-                    <img src={oneCrypto[pageId].logo} alt={oneCrypto[id].name} />
-                    <h2>{oneCrypto[pageId].name}</h2>
-                    <h2>{props.num_market_pairs}</h2>
+                    <img src={oneCrypto[pageId].logo} alt={oneCrypto[id].name} className="logo" />
                 </div>
+                <div>
+                    <h2>{oneCrypto[pageId].name} - {oneCrypto[pageId].symbol}</h2>
+                </div>
+                <div>
+
+                    <h2>USD ${props.quote.USD.price.toFixed(2)}</h2>
+                    <h2>% {props.quote.USD.percent_change_24h.toFixed(2)}</h2>
+                </div>
+
             </section>
         </>
     }
