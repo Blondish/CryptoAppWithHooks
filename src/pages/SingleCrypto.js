@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 
-export default function SingleCrypto() {
+export default function SingleCrypto({ ...props }) {
     const [loading, setLoading] = useState(false)
-    const [oneCrypto, setOneCrypto] = useState({})
-
+    const [oneCrypto, setOneCrypto] = useState(null)
     const { id } = useParams()
+    const [pageId, setPageId] = useState(id)
+
+    console.log(props)
+
 
     useEffect(() => {
         setLoading(true)
@@ -24,6 +27,7 @@ export default function SingleCrypto() {
                 const data = await response.json()
                 const mydata = data.data;
                 setOneCrypto(mydata)
+                setPageId(id)
                 setLoading(false)
             } catch (error) {
                 console.log(error)
@@ -33,6 +37,7 @@ export default function SingleCrypto() {
     }, [id])
 
 
+
     if (loading) {
         return <h2>Loading...</h2>
     } if (oneCrypto === null) {
@@ -40,12 +45,11 @@ export default function SingleCrypto() {
     } else {
 
         return <>
-
-            {console.log(oneCrypto)}
-            <section>
-                <div>
-                    <img src={oneCrypto.logo} alt={oneCrypto.name} />
-                    <h2>{oneCrypto.name}</h2>
+            <section className="container">
+                <div >
+                    <img src={oneCrypto[pageId].logo} alt={oneCrypto[id].name} />
+                    <h2>{oneCrypto[pageId].name}</h2>
+                    <h2>{props.num_market_pairs}</h2>
                 </div>
             </section>
         </>

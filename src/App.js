@@ -18,9 +18,15 @@ function App() {
         <Route path="/about">
           <About />
         </Route>
-        <Route path="/crypto/:id">
+        {/* <Route path="/crypto/:id">
           <SingleCrypto />
-        </Route>
+        </Route> */}
+        <Route
+          path='/crypto/:id'
+          render={(props) => (
+            <SingleCrypto{...props.location.state} />
+          )}
+        />
         <Route path="*">
           <Error />
         </Route>

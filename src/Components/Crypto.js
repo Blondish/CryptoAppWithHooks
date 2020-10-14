@@ -2,11 +2,17 @@ import React from 'react';
 import { Link } from "react-router-dom"
 
 const Crypto = ({ crypto, cryptos }) => {
+
     return <>
         <tr>
             <td>{crypto.cmc_rank}</td>
             <td>
-                <Link to={`/crypto/${crypto.id}`}>{crypto.name}</Link>
+                <Link to={{
+                    pathname: `/crypto/${crypto.id}`,
+                    state: crypto
+                }}>
+                    {crypto.name}
+                </Link>
             </td>
             <td>{crypto.symbol}</td>
             <td>
