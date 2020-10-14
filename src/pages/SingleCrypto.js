@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
+import Chart from '../Components/Chart';
 
 export default function SingleCrypto({ ...props }) {
     const [loading, setLoading] = useState(false)
     const [oneCrypto, setOneCrypto] = useState(null)
     const { id } = useParams()
     const [pageId, setPageId] = useState(id)
-
-    console.log(props)
 
 
     useEffect(() => {
@@ -57,8 +56,8 @@ export default function SingleCrypto({ ...props }) {
                     <h2>USD ${props.quote.USD.price.toFixed(2)}</h2>
                     <h2>% {props.quote.USD.percent_change_24h.toFixed(2)}</h2>
                 </div>
-
             </section>
+            <Chart oneCrypto={oneCrypto} props={props} />
         </>
     }
 
