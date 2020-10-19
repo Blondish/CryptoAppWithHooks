@@ -37,7 +37,6 @@ export default function SingleCrypto({ ...props }) {
     }, [id])
 
 
-
     if (loading) {
         return <h2>Loading...</h2>
     } if (oneCrypto === null) {
@@ -58,8 +57,7 @@ export default function SingleCrypto({ ...props }) {
                     <h2>% {props.quote.USD.percent_change_24h.toFixed(2)}</h2>
                 </div>
             </section>
-            <ControlledTabs oneCrypto={oneCrypto} props={props}>
-            </ControlledTabs>
+            <ControlledTabs oneCrypto={oneCrypto} props={props} pageId={pageId} />
             {/* <Chart oneCrypto={oneCrypto} props={props} /> */}
         </>
     }

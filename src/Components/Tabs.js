@@ -1,9 +1,10 @@
 import React from 'react';
 import Chart from '../Components/Chart';
+import Description from '../Components/descriptionTab';
 import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
 
-export default function ControlledTabs({ oneCrypto, props }) {
+export default function ControlledTabs({ oneCrypto, props, pageId }) {
     const [key, setKey] = React.useState('chart');
 
     return (
@@ -16,7 +17,7 @@ export default function ControlledTabs({ oneCrypto, props }) {
                 <Chart oneCrypto={oneCrypto} props={props} />
             </Tab>
             <Tab eventKey="desc" title="Description">
-                <h1 className="container">I am desc tabs</h1>
+                <Description oneCrypto={oneCrypto} pageId={pageId} />
             </Tab>
             <Tab eventKey="nexttab" title="Next Tab">
                 <h1 className="container">I am Next Tab</h1>
