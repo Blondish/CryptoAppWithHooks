@@ -2,7 +2,7 @@ import React from "react";
 import { Table } from "react-bootstrap";
 import Crypto from './Crypto';
 
-function RenderTable({ cryptos, loading }) {
+function RenderTable({ cryptos, loading, currency }) {
     if (loading) {
         return <h2>Loading...</h2>
     } if (cryptos.length < 1) {
@@ -26,7 +26,7 @@ function RenderTable({ cryptos, loading }) {
                 </thead>
                 <tbody>
                     {cryptos.map(crypto => {
-                        return <Crypto key={crypto.id} crypto={crypto} cryptos={cryptos} />
+                        return <Crypto key={crypto.id} crypto={crypto} currency={currency} />
                     })}
 
                 </tbody>

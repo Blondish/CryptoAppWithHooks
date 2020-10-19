@@ -10,26 +10,22 @@ export default function Chart({ props }) {
     const price_7d = (lastPrice - lastPrice * (percent_change_7d / 100)).toFixed(2)
 
 
-    console.log(price_7d)
-
-
-
     const state = {
         labels: ['7day', '24h', '1h', "last price"],
         datasets: [
             {
                 label: 'Price',
-                fill: false,
+                fill: true,
                 lineTension: 0.5,
-                backgroundColor: 'rgba(75,192,192,1)',
-                borderColor: 'rgba(0,0,0,1)',
+                backgroundColor: '#F0FFFF',
+                borderColor: '#B0E0E6',
                 borderWidth: 2,
                 data: [price_7d, price_24h, price_1h, lastPrice]
             }
         ]
     }
 
-    return <div>
+    return <div className="container">
         <Line
             data={state}
             options={{
@@ -40,7 +36,7 @@ export default function Chart({ props }) {
                 },
                 legend: {
                     display: true,
-                    position: 'right'
+                    position: 'top'
                 }
             }}
         />

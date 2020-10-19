@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
-import Chart from '../Components/Chart';
+import ControlledTabs from './../Components/Tabs';
 
 export default function SingleCrypto({ ...props }) {
     const [loading, setLoading] = useState(false)
     const [oneCrypto, setOneCrypto] = useState(null)
     const { id } = useParams()
     const [pageId, setPageId] = useState(id)
+
 
 
     useEffect(() => {
@@ -46,18 +47,20 @@ export default function SingleCrypto({ ...props }) {
         return <>
             <section>
                 <div >
-                    <img src={oneCrypto[pageId].logo} alt={oneCrypto[id].name} className="logo" />
+                    <img src={oneCrypto[pageId].logo} alt={oneCrypto[pageId].name} className="logo" />
                 </div>
                 <div>
                     <h2>{oneCrypto[pageId].name} - {oneCrypto[pageId].symbol}</h2>
                 </div>
                 <div>
 
-                    <h2>USD ${props.quote.USD.price.toFixed(2)}</h2>
+                    <h2>${props.quote.USD.price.toFixed(2)}</h2>
                     <h2>% {props.quote.USD.percent_change_24h.toFixed(2)}</h2>
                 </div>
             </section>
-            <Chart oneCrypto={oneCrypto} props={props} />
+            <ControlledTabs oneCrypto={oneCrypto} props={props}>
+            </ControlledTabs>
+            {/* <Chart oneCrypto={oneCrypto} props={props} /> */}
         </>
     }
 
