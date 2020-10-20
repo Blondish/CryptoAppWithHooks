@@ -58,6 +58,53 @@ section {
     text-align: center;
   }
 
+  .back-btn {
+    position: relative;
+    top: 2rem;
+    left: 2rem
+  }
+  /* tabs */
+
+  .tabs-content {
+    margin-top: 4rem
+  }
+
+  /* description tab */
+
+  ul {
+    list-style-type: none;
+    text-decoration: none
+  }
+  a {
+    text-decoration: none;
+  }
+  .desc-content {
+    align-items: center;
+    margin: 20px auto
+  }
+
+  .desc-content h5 {
+    padding-bottom: 2rem;
+    text-transform: capitalize
+  }
+  .desc-text {
+    padding: 3rem 2rem 2rem;
+    font-size: 1.3rem;
+   
+  }
+
+  /* chart tab */
+  .chart-content {
+    margin-top: 2rem
+  }
+
+  .price-overview-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.3rem;
+  }
+
   @media screen and (min-width: 992px) {
       section {
           flex-direction: row;

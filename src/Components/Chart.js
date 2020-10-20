@@ -25,7 +25,7 @@ export default function Chart({ props }) {
         ]
     }
 
-    return <div className="container">
+    return <div className="container chart-content">
         <Line
             data={state}
             options={{
@@ -40,5 +40,14 @@ export default function Chart({ props }) {
                 }
             }}
         />
+        <div className="container">
+            <h3>Overview</h3>
+            <ul className="price-overview-content">
+                <li>Last Price: {lastPrice}</li>
+                <li>Price 1 hour ago: {price_1h}</li>
+                <li>Price 24 hours ago: {price_24h}</li>
+                <li>Price 7 days ago: {price_7d}</li>
+            </ul>
+        </div>
     </div>
 }

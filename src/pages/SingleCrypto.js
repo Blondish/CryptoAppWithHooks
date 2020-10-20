@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import ControlledTabs from './../Components/Tabs';
+import { Link } from "react-router-dom"
+import Button from 'react-bootstrap/Button';
 
 export default function SingleCrypto({ ...props }) {
     const [loading, setLoading] = useState(false)
@@ -44,6 +46,7 @@ export default function SingleCrypto({ ...props }) {
     } else {
 
         return <>
+            <Button variant="outline-dark" className="back-btn"><Link to="/">Back</Link></Button>
             <section>
                 <div >
                     <img src={oneCrypto[pageId].logo} alt={oneCrypto[pageId].name} className="logo" />
@@ -58,7 +61,7 @@ export default function SingleCrypto({ ...props }) {
                 </div>
             </section>
             <ControlledTabs oneCrypto={oneCrypto} props={props} pageId={pageId} />
-            {/* <Chart oneCrypto={oneCrypto} props={props} /> */}
+
         </>
     }
 

@@ -9,11 +9,11 @@ export default function ControlledTabs({ oneCrypto, props, pageId }) {
 
     return (
         <Tabs
-            className="container"
+            className="container tabs-content"
             activeKey={key}
             onSelect={(k) => setKey(k)}
         >
-            <Tab eventKey="chart" title="Chart">
+            <Tab eventKey="chart" title="Price Chart">
                 <Chart oneCrypto={oneCrypto} props={props} />
             </Tab>
             <Tab eventKey="desc" title="Description">
