@@ -7,6 +7,7 @@ import StatsTab from './../StatsTab';
 
 export default function ControlledTabs({ oneCrypto, props, pageId }) {
     const [key, setKey] = React.useState('chart');
+    console.log(pageId)
 
     return (
         <Tabs

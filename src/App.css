@@ -58,11 +58,13 @@ section {
     text-align: center;
   }
 
-  .back-btn {
-    position: relative;
-    top: 2rem;
-    left: 2rem
+  .btn-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 2rem
   }
+
+  
   /* tabs */
 
   .tabs-content {
@@ -97,6 +99,19 @@ section {
   .chart-content {
     margin-top: 2rem
   }
+  .container h3 {
+    margin: 1.5rem 0;
+    text-align: center
+  }
+  
+  .price-overview-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 0px
+  }
+
 
   /* Stats Tab*/
   .stats  {
@@ -104,12 +119,11 @@ section {
     text-align: center
   }
 
-  .price-overview-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1.3rem;
+  .stats_table {
+    width: 85%;
+    margin: auto
   }
+
 
   @media screen and (min-width: 992px) {
       section {
@@ -118,4 +132,15 @@ section {
           justify-content: space-between;
           align-items: center
       }
+
+    .price-overview-content {
+      flex-direction: row
+    }
   }
+
+  @media screen and (min-width: 600px) {
+    
+  .price-overview-content {
+    flex-direction: row
+  }
+}
