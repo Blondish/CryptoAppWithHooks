@@ -1,7 +1,7 @@
 import React from "react"
 
 export default function Description({ oneCrypto, pageId }) {
-    console.log(oneCrypto)
+
 
     return <>
         <section className="container">
@@ -15,7 +15,10 @@ export default function Description({ oneCrypto, pageId }) {
                     <li><a href={oneCrypto[pageId].urls.twitter[0]}>{oneCrypto[pageId].urls.twitter[0]}</a></li>
                     <li><a href={oneCrypto[pageId].urls.explorer[0]}>{oneCrypto[pageId].urls.explorer[0]}</a></li>
                     <li><a href={oneCrypto[pageId].urls.reddit[0]}>{oneCrypto[pageId].urls.reddit[0]}</a></li>
-
+                    <li><a href={oneCrypto[pageId].urls.source_code[0]}>{oneCrypto[pageId].urls.source_code[0]}</a></li>
+                    <li><a href={oneCrypto[pageId].urls.message_board[0]}>{oneCrypto[pageId].urls.message_board[0]}</a></li>
+                    <li><a href={oneCrypto[pageId].urls.chat[0]}>{oneCrypto[pageId].urls.chat[0]}</a></li>
+                    <li><a href={oneCrypto[pageId].urls.technical_doc[0]}>{oneCrypto[pageId].urls.technical_doc[0]}</a></li>
                 </ul>
             </div>
         </section>

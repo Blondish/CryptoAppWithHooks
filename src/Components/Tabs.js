@@ -3,6 +3,7 @@ import Chart from '../Components/Chart';
 import Description from '../Components/descriptionTab';
 import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
+import StatsTab from './../StatsTab';
 
 export default function ControlledTabs({ oneCrypto, props, pageId }) {
     const [key, setKey] = React.useState('chart');
@@ -19,8 +20,8 @@ export default function ControlledTabs({ oneCrypto, props, pageId }) {
             <Tab eventKey="desc" title="Description">
                 <Description oneCrypto={oneCrypto} pageId={pageId} />
             </Tab>
-            <Tab eventKey="nexttab" title="Next Tab">
-                <h1 className="container">I am Next Tab</h1>
+            <Tab eventKey="statstab" title="Stats Tab">
+                <StatsTab oneCrypto={oneCrypto} props={props} pageId={pageId} />
             </Tab>
         </Tabs>
     );

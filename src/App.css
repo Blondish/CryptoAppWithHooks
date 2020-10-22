@@ -98,6 +98,12 @@ section {
     margin-top: 2rem
   }
 
+  /* Stats Tab*/
+  .stats  {
+    margin: 3rem auto;
+    text-align: center
+  }
+
   .price-overview-content {
     display: flex;
     justify-content: space-between;

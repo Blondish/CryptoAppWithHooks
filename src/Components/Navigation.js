@@ -1,16 +1,16 @@
 import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import Form from "react-bootstrap/Form";
-import FormControl from "react-bootstrap/FormControl";
-import Button from "react-bootstrap/Button";
 import { NavDropdown } from "react-bootstrap";
+import { MdMoneyOff } from "react-icons/md"
+import { FiLogIn } from "react-icons/fi"
+import { BsChat } from "react-icons/bs"
 
 export default function Navigation() {
     return (
         <div>
             <Navbar bg="dark" expand="lg" variant="dark">
-                <Navbar.Brand href="/">Crypto$Play</Navbar.Brand>
+                <Navbar.Brand href="/">Crypto{<MdMoneyOff />}Play</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
@@ -26,14 +26,10 @@ export default function Navigation() {
                             <NavDropdown.Item href="#action/3.4">Chat</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
-                    <Form inline>
-                        <FormControl
-                            type="text"
-                            placeholder="Search"
-                            className="mr-sm-2"
-                        />
-                        <Button variant="outline-success">Search</Button>
-                    </Form>
+                    <Nav>
+                        <Nav.Link href="/login">Login  <FiLogIn /></Nav.Link>
+                        <Nav.Link href="/chat">Chat  <BsChat /></Nav.Link>
+                    </Nav>
                 </Navbar.Collapse>
             </Navbar>
         </div>

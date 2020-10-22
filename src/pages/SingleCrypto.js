@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 import ControlledTabs from './../Components/Tabs';
 import { Link } from "react-router-dom"
 import Button from 'react-bootstrap/Button';
+import { FiSkipBack } from "react-icons/fi"
 
 export default function SingleCrypto({ ...props }) {
     const [loading, setLoading] = useState(false)
@@ -46,7 +47,7 @@ export default function SingleCrypto({ ...props }) {
     } else {
 
         return <>
-            <Button variant="outline-dark" className="back-btn"><Link to="/">Back</Link></Button>
+            <Button variant="outline-dark" className="back-btn"><Link to="/"><FiSkipBack /></Link></Button>
             <section>
                 <div >
                     <img src={oneCrypto[pageId].logo} alt={oneCrypto[pageId].name} className="logo" />
