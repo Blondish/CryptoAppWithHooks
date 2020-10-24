@@ -3,19 +3,19 @@ import { useState, useEffect } from "react"
 import RenderTable from '../Components/Table';
 import SearchBox from './../Components/SearchBox';
 
-export const Home = () => {
+export const Home = (e) => {
     const [cryptos, setCryptos] = useState([])
     const [loading, setLoading] = useState(false);
     const [search, setSearch] = useState("")
-    const [currency, setCurrency] = useState("")
+    const [currency, setCurrency] = useState("USD")
 
     useEffect(() => {
-        setLoading(true)
+        console.log(currency)
         const getAllCryptos = async () => {
             try {
                 let start = 1;
                 let limit = 10;
-                let convert = "USD"
+                let convert = currency
                 const proxyurl = "https://cors-anywhere.herokuapp.com/";
                 const response = await fetch(proxyurl +
                     "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=" + start + "&limit=" + limit + "&convert=" + convert,
@@ -29,7 +29,7 @@ export const Home = () => {
 
                 if (cryptos) {
                     setCryptos(cryptos);
-                    setCurrency(convert)
+                    // setCurrency(convert)
 
                 } else {
                     setCryptos([])
@@ -42,20 +42,34 @@ export const Home = () => {
         }
         getAllCryptos()
 
-    }, []);
+    }, [currency]);
 
 
     let searchedCryptos = cryptos.filter(crypto => {
         return crypto.name.toLowerCase().startsWith(search);
     })
 
+
+    const changeCurrency = (e) => {
+        console.log("before:", currency)
+        setCurrency(e)
+        setLoading(true)
+        console.log(currency)
+    }
+
     return (
 
 
         <div className="container">
             <h1 className="title">Top Ranked Cryptos</h1>
+            <div>
+                <select name="currency" id="currency" placeholder="select the currency" onChange={(e) => changeCurrency(e.target.value)}>
+                    <option value="USD">USD</option>
+                    <option value="EUR">EUR</option>
+                    <option value="CAD">CAD</option>
+                </select>
+            </div>
             <SearchBox search={search} setSearch={setSearch}></SearchBox>
-            {/* <SearchForm setSearch={setSearch} /> */}
             <RenderTable loading={loading} cryptos={searchedCryptos} currency={currency} />
         </div>
     );

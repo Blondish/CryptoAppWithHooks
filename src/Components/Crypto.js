@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom"
 
 const Crypto = ({ crypto, currency }) => {
-    console.log(crypto)
+    console.log(currency)
     return <>
         <tr>
             <td>{crypto.cmc_rank}</td>

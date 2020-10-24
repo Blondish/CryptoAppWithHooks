@@ -1,8 +1,8 @@
 import React from "react"
 import { Line } from "react-chartjs-2"
 
-export default function Chart({ props }) {
-
+export default function Chart({ props, currency }) {
+    console.log(currency)
     const { percent_change_1h, percent_change_7d, percent_change_24h, price } = props.quote.USD
     const lastPrice = price.toFixed(2)
     const price_1h = (lastPrice - lastPrice * (percent_change_1h / 100)).toFixed(2)

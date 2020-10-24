@@ -49,10 +49,8 @@ export default function SingleCrypto({ ...props }) {
 
         return <>
             <div className="btn-container">
-
                 <Button variant="outline-dark"><Link to="/"><FiSkipBack /></Link></Button>
                 <Button variant="outline-dark"><Link to="#"><GrFavorite /></Link></Button>
-
             </div>
 
             <section>
@@ -64,8 +62,8 @@ export default function SingleCrypto({ ...props }) {
                 </div>
                 <div>
 
-                    <h2>${props.quote.USD.price.toFixed(2)}</h2>
-                    <h2>% {props.quote.USD.percent_change_24h.toFixed(2)}</h2>
+                    {/* <h2>${props.quote.USD.price.toFixed(2)}</h2>
+                    <h2>% {props.quote.USD.percent_change_24h.toFixed(2)}</h2> */}
                 </div>
             </section>
             <ControlledTabs oneCrypto={oneCrypto} props={props} pageId={pageId} />
