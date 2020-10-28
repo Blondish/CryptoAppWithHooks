@@ -5,10 +5,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/css/bootstrap.css";
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { AllCryptoProvider } from "./Context"
 
 ReactDOM.render(
-
-  <App />,
+  <AllCryptoProvider>
+    <App />
+  </AllCryptoProvider>,
 
   document.getElementById('root')
 );

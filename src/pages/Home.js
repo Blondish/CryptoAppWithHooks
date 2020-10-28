@@ -10,7 +10,6 @@ export const Home = (e) => {
     const [currency, setCurrency] = useState("USD")
 
     useEffect(() => {
-        console.log(currency)
         const getAllCryptos = async () => {
             try {
                 let start = 1;
@@ -51,10 +50,8 @@ export const Home = (e) => {
 
 
     const changeCurrency = (e) => {
-        console.log("before:", currency)
         setCurrency(e)
         setLoading(true)
-        console.log(currency)
     }
 
     return (

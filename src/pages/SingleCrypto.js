@@ -5,6 +5,7 @@ import { Link } from "react-router-dom"
 import Button from 'react-bootstrap/Button';
 import { FiSkipBack } from "react-icons/fi"
 import { GrFavorite } from "react-icons/gr"
+import { useGlobalContext } from "../Context"
 
 export default function SingleCrypto({ ...props }) {
     const [loading, setLoading] = useState(false)
@@ -12,7 +13,8 @@ export default function SingleCrypto({ ...props }) {
     const { id } = useParams()
     const [pageId, setPageId] = useState(id)
 
-
+    const data = useGlobalContext()
+    console.log(data)
 
     useEffect(() => {
         setLoading(true)
