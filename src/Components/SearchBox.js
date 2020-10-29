@@ -1,6 +1,8 @@
 import React from "react";
+import { useGlobalContext } from "../Context"
 
-const SearchBox = ({ search, setSearch }) => {
+const SearchBox = () => {
+    const { search, setSearch } = useGlobalContext()
     return (
         <input
             type="text"

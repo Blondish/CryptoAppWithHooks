@@ -13,8 +13,7 @@ export default function SingleCrypto({ ...props }) {
     const { id } = useParams()
     const [pageId, setPageId] = useState(id)
 
-    const data = useGlobalContext()
-    console.log(data)
+    const { currency } = useGlobalContext()
 
     useEffect(() => {
         setLoading(true)
@@ -64,8 +63,8 @@ export default function SingleCrypto({ ...props }) {
                 </div>
                 <div>
 
-                    {/* <h2>${props.quote.USD.price.toFixed(2)}</h2>
-                    <h2>% {props.quote.USD.percent_change_24h.toFixed(2)}</h2> */}
+                    <h2>{currency}: {props.quote[currency].price.toFixed(2)}</h2>
+                    <h2>% {props.quote[currency].percent_change_24h.toFixed(2)}</h2>
                 </div>
             </section>
             <ControlledTabs oneCrypto={oneCrypto} props={props} pageId={pageId} />

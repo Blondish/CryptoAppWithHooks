@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from "react-router-dom"
+import { useGlobalContext } from "../Context"
 
-const Crypto = ({ crypto, currency }) => {
-    console.log(currency)
+const Crypto = ({ crypto }) => {
+    const { currency } = useGlobalContext()
     return <>
         <tr>
             <td>{crypto.cmc_rank}</td>

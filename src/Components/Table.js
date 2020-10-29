@@ -1,8 +1,10 @@
 import React from "react";
 import { Table } from "react-bootstrap";
 import Crypto from './Crypto';
+import { useGlobalContext } from "../Context"
 
-function RenderTable({ cryptos, loading, currency }) {
+function RenderTable({ cryptos }) {
+    const { loading } = useGlobalContext()
     if (loading) {
         return <h2>Loading...</h2>
     } if (cryptos.length < 1) {
@@ -26,7 +28,7 @@ function RenderTable({ cryptos, loading, currency }) {
                 </thead>
                 <tbody>
                     {cryptos.map(crypto => {
-                        return <Crypto key={crypto.id} crypto={crypto} currency={currency} />
+                        return <Crypto key={crypto.id} crypto={crypto} />
                     })}
 
                 </tbody>

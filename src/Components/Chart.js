@@ -1,9 +1,12 @@
 import React from "react"
 import { Line } from "react-chartjs-2"
+import { useGlobalContext } from "../Context"
+
 
 export default function Chart({ props }) {
+    const { currency } = useGlobalContext()
 
-    const { percent_change_1h, percent_change_7d, percent_change_24h, price } = props.quote.USD
+    const { percent_change_1h, percent_change_7d, percent_change_24h, price } = props.quote[currency]
     const lastPrice = price.toFixed(2)
     const price_1h = (lastPrice - lastPrice * (percent_change_1h / 100)).toFixed(2)
     const price_24h = (lastPrice - lastPrice * (percent_change_24h / 100)).toFixed(2)
