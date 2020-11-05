@@ -1,12 +1,15 @@
 import React from "react";
 import { Table } from "react-bootstrap";
 import Crypto from './Crypto';
+import { Spinner } from "react-bootstrap"
 import { useGlobalContext } from "../Context"
 
-function RenderTable({ cryptos }) {
+
+//React.memo is a hook that prevents rendering if the state/prop did not change
+const RenderTable = React.memo(({ cryptos }) => {
     const { loading } = useGlobalContext()
     if (loading) {
-        return <h2>Loading...</h2>
+        return <div className="spinner"><Spinner animation="border" variant="secondary" /></div>
     } if (cryptos.length < 1) {
         return <h2>
             No matches to your search criteria
@@ -35,6 +38,6 @@ function RenderTable({ cryptos }) {
             </Table>
         </div>
     );
-}
+})
 
 export default RenderTable;

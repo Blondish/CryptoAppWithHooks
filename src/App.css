@@ -31,6 +31,13 @@
     font-size: calc(10px + 2vmin);
 }
 
+.spinner {
+  width: 100vw;
+  text-align: center;
+  margin-top: 20px
+  
+}
+
 .title {
     margin: 50px;
     color: #282c34;

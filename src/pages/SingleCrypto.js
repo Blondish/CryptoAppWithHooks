@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 import ControlledTabs from './../Components/Tabs';
 import { Link } from "react-router-dom"
 import Button from 'react-bootstrap/Button';
+import { Spinner } from "react-bootstrap"
 import { FiSkipBack } from "react-icons/fi"
 import { GrFavorite } from "react-icons/gr"
 import { useGlobalContext } from "../Context"
@@ -43,7 +44,9 @@ export default function SingleCrypto({ ...props }) {
 
 
     if (loading) {
-        return <h2>Loading...</h2>
+        return <div className="spinner">
+            <Spinner animation="border" variant="secondary" />
+        </div>
     } if (oneCrypto === null) {
         return <h2>No Crypto Exists</h2>
     } else {
