@@ -6,6 +6,7 @@ import About from "./pages/About"
 import Error from './pages/Error';
 import SingleCrypto from './pages/SingleCrypto';
 import Navigation from "./Components/Navigation";
+import { Favourite } from './pages/Favourite';
 
 function App() {
   return (
@@ -18,15 +19,15 @@ function App() {
         <Route path="/about">
           <About />
         </Route>
-        {/* <Route path="/crypto/:id">
-          <SingleCrypto />
-        </Route> */}
         <Route
           path='/crypto/:id'
           render={(props) => (
             <SingleCrypto{...props.location.state} />
           )}
         />
+        <Route path="/fave">
+          <Favourite />
+        </Route>
         <Route path="*">
           <Error />
         </Route>

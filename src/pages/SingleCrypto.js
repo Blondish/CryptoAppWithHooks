@@ -54,7 +54,7 @@ export default function SingleCrypto({ ...props }) {
         return <>
             <div className="btn-container">
                 <Button variant="outline-dark"><Link to="/"><FiSkipBack /></Link></Button>
-                <Button variant="outline-dark"><Link to="#"><GrFavorite /></Link></Button>
+                <Button variant="outline-dark"><Link to="/fave"><GrFavorite /></Link></Button>
             </div>
 
             <section>
