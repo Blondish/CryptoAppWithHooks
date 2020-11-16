@@ -12,7 +12,7 @@ export const AllCryptoProvider = ({ children }) => {
         const getAllCryptos = async () => {
             try {
                 let start = 1;
-                let limit = 10;
+                let limit = 20;
                 let convert = currency
                 const proxyurl = "https://cors-anywhere.herokuapp.com/";
                 const response = await fetch(proxyurl +
